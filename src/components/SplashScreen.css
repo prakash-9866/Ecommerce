@@ -1,0 +1,138 @@
+.splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+  transform: scale(1.1);
+  pointer-events: none;
+}
+
+.splash-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+.shop-icon {
+  width: 80px;
+  height: 80px;
+  z-index: 2;
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.5));
+}
+
+.logo-glow {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.splash-title {
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin: 0;
+  display: flex;
+}
+
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: reveal-char 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.char.space {
+  width: 1rem;
+}
+
+.char:nth-child(1) { animation-delay: 0.1s; }
+.char:nth-child(2) { animation-delay: 0.2s; }
+.char:nth-child(4) { animation-delay: 0.3s; }
+.char:nth-child(5) { animation-delay: 0.4s; }
+.char:nth-child(6) { animation-delay: 0.5s; }
+.char:nth-child(7) { animation-delay: 0.6s; }
+
+.loading-bar {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
+  animation: loading 2s ease-in-out forwards;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.3); opacity: 0.6; }
+}
+
+@keyframes reveal-char {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes loading {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .splash-title {
+    font-size: 2.5rem;
+  }
+  
+  .logo-container {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .shop-icon {
+    width: 60px;
+    height: 60px;
+  }
+}
