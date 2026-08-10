@@ -1,0 +1,25 @@
+# Dependency directories
+/node_modules
+/Backend/node_modules
+/Frontend/node_modules
+
+# Environment variables and secrets
+.env
+/Backend/.env
+/Frontend/.env
+/Frontend/.env.local
+/Frontend/.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Production build output
+/dist
+/build
+
+# Misc
+.DS_Store
+.envrc
